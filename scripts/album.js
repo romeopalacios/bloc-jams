@@ -13,7 +13,7 @@ var albumPicasso = {
      ]
  };
  
- var albumMarconi = {
+var albumMarconi = {
      title: 'The Telephone',
      artist: 'Guglielmo Marconi',
      label: 'EM',
@@ -28,7 +28,22 @@ var albumPicasso = {
      ]
  };
 
- var createSongRow = function(songNumber, songName, songLength) {
+var albumMichael = {
+     title: 'Thriller',
+     artist: 'Michael Jackson',
+     label: 'Epic',
+     year: '1982',
+     albumArtUrl: 'assets/images/album_covers/22.png',
+     songs: [
+         { title: 'Bille Jean', duration: '4:54' },
+         { title: 'Beat It', duration: '4:18' },
+         { title: 'Human Nature', duration: '4:06'},
+         { title: 'P.Y.T. (Pretty Young Thing)', duration: '3:58' },
+         { title: 'Thriller', duration: '5:57'}
+     ]
+ };
+
+var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
       + '  <td class="song-item-number">' + songNumber + '</td>'
@@ -40,14 +55,14 @@ var albumPicasso = {
      return template;
  };
 
-  var setCurrentAlbum = function(album) {
-     
-     var albumTitle = document.getElementsByClassName('album-view-title')[0];
-     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-     var albumImage = document.getElementsByClassName('album-cover-art')[0];
-     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
  
+
+var setCurrentAlbum = function(album) {
      
      albumTitle.firstChild.nodeValue = album.title;
      albumArtist.firstChild.nodeValue = album.artist;
@@ -64,5 +79,17 @@ var albumPicasso = {
  };
  
  window.onload = function() {
-     setCurrentAlbum(albumPicasso);
- };
+     setCurrentAlbum(albumMichael);
+ 
+
+  var albums = [albumPicasso, albumMarconi, albumMichael];
+  var index = 1;
+  albumImage.addEventListener("click", function(event) {
+    setCurrentAlbum(albums[index]);
+    index++;
+    if(index===albums.length) {
+        index = 0;
+      }
+   });
+};
+                        
