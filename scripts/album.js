@@ -78,14 +78,18 @@ var setCurrentAlbum = function(album) {
      }
  };
 var findParentByClassName = function(element, targetClass) {
-    if (element) {
-        var currentParent = element.parentElement;
-        while (currentParent.className !== targetClass && currentParent.className !== null) {
-            currentParent = currentParent.parentElement;
-        }
+    var currentParent = element.parentElement;
+    if (currentParent) {
         return currentParent;
     }
+    else if(currentParent!==null) {
+        console.log("No parent found")
+    }
+    else if(currentParent.className !== targetClass && currentParent.className !== null) {
+        console.log("No parent with that class name")
+    }
 };
+
 var getSongItem = function(element) {
     switch (element.className) {
         case 'album-song-button':
@@ -135,6 +139,7 @@ var currentlyPlayingSong = null;
  
 songListContainer.addEventListener('mouseover', function(event) {
     if (event.target.parentElement.className === 'album-view-song-item') {
+         
            var songItem = getSongItem(event.target);
 
            if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
