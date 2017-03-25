@@ -28,6 +28,21 @@ var albumMarconi = {
      ]
  };
 
+var albumMichael = {
+     title: 'Thriller',
+     artist: 'Michael Jackson',
+     label: 'Epic',
+     year: '1982',
+     albumArtUrl: 'assets/images/album_covers/22.png',
+     songs: [
+         { title: 'Bille Jean', duration: '4:54' },
+         { title: 'Beat It', duration: '4:18' },
+         { title: 'Human Nature', duration: '4:06'},
+         { title: 'P.Y.T. (Pretty Young Thing)', duration: '3:58' },
+         { title: 'Thriller', duration: '5:57'}
+     ]
+ };
+
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -48,20 +63,10 @@ var createSongRow = function(songNumber, songName, songLength) {
     
 
 var setCurrentAlbum = function(album) {
-<<<<<<< HEAD
-    
-     var albumTitle = document.getElementsByClassName('album-view-title')[0];
-     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-     var albumImage = document.getElementsByClassName('album-cover-art')[0];
-     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
- 
-=======
      $albumTitle.text(album.title);
      $albumArtist.text(album.artist);
      $albumReleaseInfo.text(album.year + ' ' + album.label);
      $albumImage.attr('src', album.albumArtUrl);
->>>>>>> checkpoint-17-collectionalbum
      
  
      
@@ -133,27 +138,9 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 var currentlyPlayingSong = null;
 
 
-
- window.onload = function() { 
-     setCurrentAlbum(albumPicasso);
-
  window.onload = function() {
      setCurrentAlbum(albumMichael);
-<<<<<<< HEAD
-      var albums = [albumPicasso, albumMarconi, albumMichael];
-  var index = 1;
-  albumImage.addEventListener("click", function(event) {
-    setCurrentAlbum(albums[index]);
-    index++;
-    if(index===albums.length) {
-        index = 0;
-      }
-   });
-
-
-=======
       
->>>>>>> checkpoint-17-collectionalbum
  
 songListContainer.addEventListener('mouseover', function(event) {
     if (event.target.parentElement.className === 'album-view-song-item') {
@@ -170,10 +157,7 @@ songListContainer.addEventListener('mouseover', function(event) {
      
       for (var i = 0; i < songRows.length; i++) {
          songRows[i].addEventListener('mouseleave', function(event) {
-
-
              
-
              var songItem = getSongItem(event.target);
              var songItemNumber = songItem.getAttribute('data-song-number');
  
@@ -187,13 +171,8 @@ songListContainer.addEventListener('mouseover', function(event) {
               clickHandler(event.target);
          });
      }
-
- }
-
  };
  
-<<<<<<< HEAD
-=======
   var albums = [albumPicasso, albumMarconi, albumMichael];
   var index = 1;
     albumImage.addEventListener("click", function(event) {
@@ -203,5 +182,3 @@ songListContainer.addEventListener('mouseover', function(event) {
         index = 0;
       }
    });
-
->>>>>>> checkpoint-17-collectionalbum
