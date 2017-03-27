@@ -172,14 +172,3 @@ songListContainer.addEventListener('mouseover', function(event) {
          });
      }
  };
- 
-  var albums = [albumPicasso, albumMarconi, albumMichael];
-  var index = 1;
-    albumImage.addEventListener("click", function(event) {
-    setCurrentAlbum(albums[index]);
-    index++;
-    if(index===albums.length) {
-        index = 0;
-      }
-   });
-
