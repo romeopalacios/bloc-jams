@@ -172,6 +172,7 @@ songListContainer.addEventListener('mouseover', function(event) {
          });
      }
  };
+<<<<<<< HEAD
  
   var albums = [albumPicasso, albumMarconi, albumMichael];
   var index = 1;
@@ -182,3 +183,5 @@ songListContainer.addEventListener('mouseover', function(event) {
         index = 0;
       }
    });
+=======
+>>>>>>> checkpoint-17-collectionalbum
